@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -17,7 +18,7 @@ public class TestBase {
 	public static Properties or = new Properties();
 	public static FileInputStream fis;
 	
-@Test
+@BeforeSuite
 public void setUp() throws IOException {
 	
 	if(driver==null) {
@@ -27,9 +28,10 @@ public void setUp() throws IOException {
 		config.load(fis);
 		System.out.println(config.getProperty("browser"));
 		
-		if(config.getProperty("browser")=="chrome") {
-			System.setProperty("webdriver.driver.chrome", System.getProperty("user.dir")+"\\drivers\\chromedriver.exe");
-			driver.get("www.wewerwer");
+		if(config.getProperty("browser").equalsIgnoreCase("chrome")) {
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\gowthaman\\git\\DataDrivenFramework\\src\\test\\resources\\executables\\chromedriver.exe");
+		driver = new ChromeDriver();
+			driver.get("http://www.way2automation.com/index.html");
 		}
 	}
 	
@@ -38,6 +40,7 @@ public void setUp() throws IOException {
 @AfterSuite
 public void tearDown() {
 	
+//	driver.quit();
 	
 }
 
