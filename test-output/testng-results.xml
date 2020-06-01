@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="11" started-at="2020-05-27T07:44:28Z" finished-at="2020-05-27T07:44:28Z">
+  <suite name="Data Driver Basics" duration-ms="442" started-at="2020-06-01T05:25:54Z" finished-at="2020-06-01T05:25:54Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="11" started-at="2020-05-27T07:44:28Z" finished-at="2020-05-27T07:44:28Z">
-      <class name="com.practice.base.TestBase">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.practice.base.TestBase@68c4039c]" name="setUp" is-config="true" duration-ms="32473" started-at="2020-05-27T13:13:56Z" finished-at="2020-05-27T13:14:28Z">
+    <test name="LoginTest" duration-ms="442" started-at="2020-06-01T05:25:54Z" finished-at="2020-06-01T05:25:54Z">
+      <class name="com.practice.testcases.LoginTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.practice.testcases.LoginTest@66a3ffec]" name="setUp" is-config="true" duration-ms="8119" started-at="2020-06-01T10:55:46Z" finished-at="2020-06-01T10:55:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.practice.base.TestBase@68c4039c]" name="tearDown" is-config="true" duration-ms="0" started-at="2020-05-27T13:14:29Z" finished-at="2020-05-27T13:14:29Z">
+        <test-method status="PASS" signature="login()[pri:0, instance:com.practice.testcases.LoginTest@66a3ffec]" name="login" duration-ms="390" started-at="2020-06-01T10:55:54Z" finished-at="2020-06-01T10:55:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.practice.testcases.LoginTest@66a3ffec]" name="tearDown" is-config="true" duration-ms="1141" started-at="2020-06-01T10:55:54Z" finished-at="2020-06-01T10:55:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.practice.base.TestBase -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.practice.testcases.LoginTest -->
+    </test> <!-- LoginTest -->
+  </suite> <!-- Data Driver Basics -->
 </testng-results>
