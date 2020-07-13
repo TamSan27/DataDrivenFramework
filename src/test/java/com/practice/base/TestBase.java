@@ -3,14 +3,18 @@ package com.practice.base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+
+import com.practice.utilities.ExcelReader;
 
 public class TestBase {
 
@@ -18,6 +22,7 @@ public class TestBase {
 	public static Properties config = new Properties();
 	public static Properties or = new Properties();
 	public static FileInputStream fis,fip;
+	public static ExcelReader excel;
 	
 @BeforeSuite
 public void setUp() throws IOException {
@@ -27,6 +32,8 @@ public void setUp() throws IOException {
 	
 	fip = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\properties\\OR.properties");	
 	or.load(fip);
+	
+	excel= new ExcelReader(System.getProperty("user.dir")+"\\src\\test\\resources\\testdata\\TestData.xlsx");
 	
 	
 	if(driver==null) {
@@ -39,6 +46,18 @@ public void setUp() throws IOException {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Integer.parseInt(config.getProperty("waitingperiod")), TimeUnit.SECONDS);
 	}
+	
+}
+
+public boolean isElementPresent(By by) {
+	try
+	{
+		driver.findElement(by);
+		return true;
+	}catch(NoSuchElementException e) {
+	return false;
+	}
+	
 	
 }
 
