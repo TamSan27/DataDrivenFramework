@@ -1,4 +1,5 @@
 package com.practice.utilities;
+
 import java.io.File;  
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -18,10 +19,10 @@ public class ExcelReader {
 	XSSFSheet sheet;
 	XSSFRow row;
 	Cell cell;
-	String path = "C:\\Users\\gowthaman\\git\\DataDrivenFramework\\src\\test\\resources\\testdata\\TestData.xlsx";
+	//String path = "C:\\Users\\gowthaman\\git\\DataDrivenFramework\\src\\test\\resources\\testdata\\TestData.xlsx";
 	
 	
-	public ExcelReader() throws IOException{
+	public ExcelReader(String path) throws IOException{
 			file = new File(path);   
 		 fis = new FileInputStream(file); 
 		 wb = new XSSFWorkbook(fis);			
@@ -41,18 +42,20 @@ public class ExcelReader {
 		int cols = row.getLastCellNum();
 		return cols;
 	}
-	
 	public String getCellData(String sheetName,int rowNo,int colNo) {
 		 sheet = wb.getSheet(sheetName);
 		 row = sheet.getRow(rowNo);
 		 cell = row.getCell(colNo);
 		 String cellValue = cell.getStringCellValue();
+		 
+		 
+		 System.out.println(cellValue);
+		
 		return cellValue;
-		
-		
+			
 	}
-	
-	}
+
+}
 
 
 

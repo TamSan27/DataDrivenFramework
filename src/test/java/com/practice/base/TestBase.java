@@ -24,6 +24,7 @@ public class TestBase {
 	public static FileInputStream fis,fip;
 	public static ExcelReader excel;
 	
+	
 @BeforeSuite
 public void setUp() throws IOException {
 	
@@ -33,7 +34,8 @@ public void setUp() throws IOException {
 	fip = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\properties\\OR.properties");	
 	or.load(fip);
 	
-	excel= new ExcelReader(System.getProperty("user.dir")+"\\src\\test\\resources\\testdata\\TestData.xlsx");
+	 excel = new ExcelReader("C:\\Users\\gowthaman\\git\\DataDrivenFramework\\src\\test\\resources\\testdata\\TestData.xlsx");
+//	excel= new ExcelReader(System.getProperty("user.dir")+"\\src\\test\\resources\\testdata\\TestData.xlsx");
 	
 	
 	if(driver==null) {
