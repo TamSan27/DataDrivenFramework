@@ -5,7 +5,8 @@
     <classes>
       <class name="com.practice.testcases.AddCustomerLoginTest">
         <methods>
-          <include name="addCustomers"/>
+          <include name="addCustomers" invocation-numbers="1"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.practice.testcases.AddCustomerLoginTest -->

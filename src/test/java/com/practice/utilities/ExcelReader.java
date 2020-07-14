@@ -5,8 +5,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Iterator;  
-import org.apache.poi.ss.usermodel.Cell;  
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;  
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;  
@@ -19,6 +21,9 @@ public class ExcelReader {
 	XSSFSheet sheet;
 	XSSFRow row;
 	Cell cell;
+	int rows;
+	int cols;
+	String cellValue;
 	//String path = "C:\\Users\\gowthaman\\git\\DataDrivenFramework\\src\\test\\resources\\testdata\\TestData.xlsx";
 	
 	
@@ -28,26 +33,30 @@ public class ExcelReader {
 		 wb = new XSSFWorkbook(fis);			
 	}
 	   
-	//XSSFSheet sheet = wb.getSheetAt(0); 
 		
 	public int getRowNumber(String sheetName) {
 		 sheet = wb.getSheet(sheetName);
-		int rows = sheet.getLastRowNum();
+		 rows = sheet.getLastRowNum();
 		return rows;
 			}
 		
 	public int getColNumber(String sheetName) {
 		 sheet = wb.getSheet(sheetName);
 		 row = sheet.getRow(0);
-		int cols = row.getLastCellNum();
+		 cols = row.getLastCellNum();
 		return cols;
 	}
 	public String getCellData(String sheetName,int rowNo,int colNo) {
 		 sheet = wb.getSheet(sheetName);
 		 row = sheet.getRow(rowNo);
 		 cell = row.getCell(colNo);
-		 String cellValue = cell.getStringCellValue();
-		 
+		
+		 if(cell.getCellType() == CellType.NUMERIC) {
+			     cellValue = NumberToTextConverter.toText(cell.getNumericCellValue());
+			}
+		 else {
+			  cellValue = cell.getStringCellValue();
+		 }
 		 
 		 System.out.println(cellValue);
 		
