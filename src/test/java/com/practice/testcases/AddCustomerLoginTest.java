@@ -14,10 +14,10 @@ import com.practice.base.TestBase;
 import com.practice.utilities.ExcelReader;
 
 public class AddCustomerLoginTest extends TestBase {
-	
+
 	@BeforeClass
 	public void clickAddCustomers() {
-		
+
 		driver.findElement(By.xpath(or.getProperty("BankManagerLoginBtn"))).click();
 		driver.findElement(By.xpath(or.getProperty("AddCustomerBtn"))).click();
 	}
@@ -25,17 +25,18 @@ public class AddCustomerLoginTest extends TestBase {
 	@Test(dataProvider = "AddCustomers")
 	public void addCustomers(String frstNm, String LstNM, String pstCde) throws InterruptedException, AWTException {
 
-	//	driver.findElement(By.xpath(or.getProperty("BankManagerLoginBtn"))).click();
-	//	driver.findElement(By.xpath(or.getProperty("AddCustomerBtn"))).click();
-		
 		driver.findElement(By.xpath(or.getProperty("FirstNmTxtBx"))).sendKeys(frstNm);
 		driver.findElement(By.xpath(or.getProperty("LastNmTxtBx"))).sendKeys(LstNM);
 		driver.findElement(By.xpath(or.getProperty("PostCdTxtBx"))).sendKeys(pstCde);
 		driver.findElement(By.xpath(or.getProperty("AddCustSubBtn"))).click();
-		
+
 		Thread.sleep(5000);
-		   Robot robot = new Robot();
-		   robot.keyPress(KeyEvent.VK_ENTER);
+
+		// Auto IT script need to be added , to Click ok for the Window based popup
+		// Added this script in Robot class, Auto IT not able to find
+
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_ENTER);
 	}
 
 	@DataProvider(name = "AddCustomers")
@@ -60,5 +61,4 @@ public class AddCustomerLoginTest extends TestBase {
 
 	}
 
-	//Auto IT script need to be added , to Click ok for the Window based popup
 }
