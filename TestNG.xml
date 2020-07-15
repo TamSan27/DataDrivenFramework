@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test suite">
+
+<listeners>
+
+<listener class-name="com.practice.listeners.ListenerTest"/>
+</listeners>
+
+<test verbose="2" name="Test case -1">
+<classes>
+<class name="com.practice.testcases.LoginTest"/>
+</classes>
+</test>
+<test verbose="2" name="Test case -2">
+<classes>
+<class name="com.practice.testcases.AddCustomerLoginTest"/>
+</classes>
+</test>
+<!--  Default test  -->
+</suite>
+<!--  Default suite  -->

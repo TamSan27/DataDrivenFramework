@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-07-14T06:48:02Z" name="Default suite" finished-at="2020-07-14T06:48:15Z" duration-ms="13092">
+  <suite started-at="2020-07-15T11:04:54Z" name="Test suite" finished-at="2020-07-15T11:05:04Z" duration-ms="9194">
     <groups>
     </groups>
-    <test started-at="2020-07-14T06:48:02Z" name="Default test" finished-at="2020-07-14T06:48:15Z" duration-ms="13092">
+    <test started-at="2020-07-15T11:04:54Z" name="Test case -1" finished-at="2020-07-15T11:04:55Z" duration-ms="360">
+      <class name="com.practice.testcases.LoginTest">
+        <test-method signature="login()[pri:0, instance:com.practice.testcases.LoginTest@1dac5ef]" started-at="2020-07-15T16:34:54Z" name="login" finished-at="2020-07-15T16:34:55Z" duration-ms="322" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+      </class> <!-- com.practice.testcases.LoginTest -->
+    </test> <!-- Test case -1 -->
+    <test started-at="2020-07-15T11:04:55Z" name="Test case -2" finished-at="2020-07-15T11:05:04Z" duration-ms="8698">
       <class name="com.practice.testcases.AddCustomerLoginTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.practice.testcases.AddCustomerLoginTest@5c671d7f]" started-at="2020-07-14T12:17:52Z" name="setUp" finished-at="2020-07-14T12:18:02Z" duration-ms="10294" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.practice.testcases.AddCustomerLoginTest@2b4bac49]" started-at="2020-07-15T16:34:45Z" name="setUp" finished-at="2020-07-15T16:34:54Z" duration-ms="9738" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method is-config="true" signature="clickAddCustomers()[pri:0, instance:com.practice.testcases.AddCustomerLoginTest@5c671d7f]" started-at="2020-07-14T12:18:02Z" name="clickAddCustomers" finished-at="2020-07-14T12:18:03Z" duration-ms="469" status="PASS">
+        <test-method is-config="true" signature="clickAddCustomers()[pri:0, instance:com.practice.testcases.AddCustomerLoginTest@2b4bac49]" started-at="2020-07-15T16:34:55Z" name="clickAddCustomers" finished-at="2020-07-15T16:34:55Z" duration-ms="97" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clickAddCustomers -->
-        <test-method signature="addCustomers(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.practice.testcases.AddCustomerLoginTest@5c671d7f]" started-at="2020-07-14T12:18:03Z" name="addCustomers" data-provider="AddCustomers" finished-at="2020-07-14T12:18:09Z" duration-ms="6642" status="PASS">
+        <test-method signature="addCustomers(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.practice.testcases.AddCustomerLoginTest@2b4bac49]" started-at="2020-07-15T16:34:55Z" name="addCustomers" data-provider="AddCustomers" finished-at="2020-07-15T16:34:59Z" duration-ms="4214" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -36,7 +44,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addCustomers -->
-        <test-method signature="addCustomers(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.practice.testcases.AddCustomerLoginTest@5c671d7f]" started-at="2020-07-14T12:18:09Z" name="addCustomers" data-provider="AddCustomers" finished-at="2020-07-14T12:18:15Z" duration-ms="5884" status="PASS">
+        <test-method signature="addCustomers(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.practice.testcases.AddCustomerLoginTest@2b4bac49]" started-at="2020-07-15T16:34:59Z" name="addCustomers" data-provider="AddCustomers" finished-at="2020-07-15T16:35:04Z" duration-ms="4329" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -57,11 +65,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- addCustomers -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.practice.testcases.AddCustomerLoginTest@5c671d7f]" started-at="2020-07-14T12:18:16Z" name="tearDown" finished-at="2020-07-14T12:18:17Z" duration-ms="1399" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.practice.testcases.AddCustomerLoginTest@2b4bac49]" started-at="2020-07-15T16:35:04Z" name="tearDown" finished-at="2020-07-15T16:35:05Z" duration-ms="1808" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.practice.testcases.AddCustomerLoginTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test case -2 -->
+  </suite> <!-- Test suite -->
 </testng-results>

@@ -1,5 +1,8 @@
 package com.practice.base;
 
+import static com.practice.base.TestBase.report;
+import static com.practice.base.TestBase.test;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -15,6 +18,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import com.practice.utilities.ExcelReader;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 
 public class TestBase {
 
@@ -23,6 +28,8 @@ public class TestBase {
 	public static Properties or = new Properties();
 	public static FileInputStream fis,fip;
 	public static ExcelReader excel;
+	public static ExtentReports report;
+	public static ExtentTest test;
 	
 	
 @BeforeSuite
@@ -35,8 +42,9 @@ public void setUp() throws IOException {
 	or.load(fip);
 	
 	excel = new ExcelReader("C:\\Users\\gowthaman\\git\\DataDrivenFramework\\src\\test\\resources\\testdata\\TestDataNew.xlsx");
-//	excel= new ExcelReader(System.getProperty("user.dir")+"\\src\\test\\resources\\testdata\\TestData.xlsx");
-	
+    
+	report = new ExtentReports("C:\\Users\\gowthaman\\git\\DataDrivenFramework\\test-output\\ExtentReports\\ExtentReports.html");
+    test = report.startTest("First Demo");
 	
 	if(driver==null) {
 		if(config.getProperty("browser").equalsIgnoreCase("chrome")) {
@@ -69,6 +77,9 @@ public void tearDown() {
 	if(driver!=null) {
 		driver.quit();
 	}
+	
+	report.endTest(test);
+	report.flush();
 		
 }
 

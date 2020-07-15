@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.practice.base.TestBase;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class LoginTest extends TestBase {
 
@@ -13,6 +14,13 @@ public class LoginTest extends TestBase {
 	{
 		driver.findElement(By.xpath(or.getProperty("BankManagerLoginBtn"))).click();
 		
-		Assert.assertTrue(isElementPresent(By.xpath(or.getProperty("HomeBtn"))),"Element is not visible right now");
-	}
+		try {
+	Assert.assertTrue(isElementPresent(By.xpath(or.getProperty("HomeBtn"))),"Element is not visible right now");
+	
+		}
+		catch(Exception e)
+		{
+			test.log(LogStatus.FAIL, "Test case failed");
+		}
+		}
 }
