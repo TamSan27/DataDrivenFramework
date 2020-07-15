@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Test suite]">
+<suite name="Failed suite [Test suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.practice.listeners.ListenerTest"/>
+  </listeners>
+  <test name="Test case -1(failed)">
+    <classes>
+      <class name="com.practice.testcases.AddCustomerLoginTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="clickAddCustomers"/>
+        </methods>
+      </class> <!-- com.practice.testcases.AddCustomerLoginTest -->
+      <class name="com.practice.testcases.LoginTest">
+        <methods>
+          <include name="login"/>
+        </methods>
+      </class> <!-- com.practice.testcases.LoginTest -->
+    </classes>
+  </test> <!-- Test case -1(failed) -->
   <test name="Test case -2(failed)">
     <classes>
       <class name="com.practice.testcases.AddCustomerLoginTest">
         <methods>
           <include name="addCustomers" invocation-numbers="0 1"/>
-          <include name="tearDown"/>
           <include name="setUp"/>
           <include name="clickAddCustomers"/>
         </methods>

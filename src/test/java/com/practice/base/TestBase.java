@@ -6,6 +6,8 @@ import static com.practice.base.TestBase.test;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -29,8 +31,11 @@ public class TestBase {
 	public static FileInputStream fis,fip;
 	public static ExcelReader excel;
 	public static ExtentReports report;
+	public static ExtentReports latestReport;
 	public static ExtentTest test;
+	public static ExtentTest latestTest;
 	
+	String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
 	
 @BeforeSuite
 public void setUp() throws IOException {
@@ -43,8 +48,10 @@ public void setUp() throws IOException {
 	
 	excel = new ExcelReader("C:\\Users\\gowthaman\\git\\DataDrivenFramework\\src\\test\\resources\\testdata\\TestDataNew.xlsx");
     
-	report = new ExtentReports("C:\\Users\\gowthaman\\git\\DataDrivenFramework\\test-output\\ExtentReports\\ExtentReports.html");
-    test = report.startTest("First Demo");
+	report = new ExtentReports("C:\\Users\\gowthaman\\git\\DataDrivenFramework\\test-output\\ExtentReports\\Reports"+timeStamp+"\\"+timeStamp+".html");
+	latestReport = new ExtentReports("C:\\Users\\gowthaman\\git\\DataDrivenFramework\\test-output\\ExtentReports\\LatestReports\\LastRun.html");
+    latestTest = latestReport.startTest("Test");
+	test = report.startTest("Test");
 	
 	if(driver==null) {
 		if(config.getProperty("browser").equalsIgnoreCase("chrome")) {
@@ -80,6 +87,8 @@ public void tearDown() {
 	
 	report.endTest(test);
 	report.flush();
+	latestReport.endTest(latestTest);
+	latestReport.flush();
 		
 }
 

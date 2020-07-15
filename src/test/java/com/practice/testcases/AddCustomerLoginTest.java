@@ -55,6 +55,7 @@ public class AddCustomerLoginTest extends TestBase {
 	System.out.println("text is:"+alertText);
 	if(alertText.contains("Customer")) {
 		test.log(LogStatus.PASS, "test case is passed");
+		latestTest.log(LogStatus.PASS, "test case is passed");
 	}
 		alert.accept();
 	
