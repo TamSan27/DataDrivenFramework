@@ -39,6 +39,8 @@ public class AddCustomerLoginTest extends TestBase {
 		driver.findElement(By.xpath(or.getProperty("PostCdTxtBx"))).sendKeys(pstCde);
 		driver.findElement(By.xpath(or.getProperty("AddCustSubBtn"))).click();
 		test.log(LogStatus.PASS, "Object Clicked"+"AddCustSubBtn");
+		
+		temp.setProperty("Dynamic CustomerName", frstNm +" "+LstNM);
 
 		Thread.sleep(3000);
 
@@ -81,6 +83,24 @@ public class AddCustomerLoginTest extends TestBase {
 
 		return data;
 
+	}
+	
+	@Test
+	public static void openAccount() throws InterruptedException {
+		
+		System.out.println(temp.getProperty("Dynamic CustomerName")+"Value of the customer is");
+	String customerName = temp.getProperty("Dynamic CustomerName");
+	
+	driver.findElement(By.xpath(or.getProperty("OpenAccountBtn"))).click();
+	Thread.sleep(2000);
+	WebDriverWait wait = new WebDriverWait(driver,10);
+	wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(or.getProperty("CusNameSlctBtn"))));
+	
+	driver.findElement(By.xpath(or.getProperty("CusNameSlctBtn"))).click();
+	driver.findElement(By.xpath("//select/option[text()='"+customerName+"']")).click();
+	
+	test.log(LogStatus.PASS, "test case is passed");
+	latestTest.log(LogStatus.PASS, "test case is passed");
 	}
 
 }

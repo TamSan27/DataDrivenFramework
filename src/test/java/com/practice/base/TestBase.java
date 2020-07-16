@@ -28,7 +28,8 @@ public class TestBase {
 	public static WebDriver driver;
 	public static Properties config = new Properties();
 	public static Properties or = new Properties();
-	public static FileInputStream fis,fip;
+	public static Properties temp = new Properties();
+	public static FileInputStream fis,fip,fir;
 	public static ExcelReader excel;
 	public static ExtentReports report;
 	public static ExtentReports latestReport;
@@ -48,10 +49,13 @@ public void setUp() throws IOException {
 	
 	excel = new ExcelReader("C:\\Users\\gowthaman\\git\\DataDrivenFramework\\src\\test\\resources\\testdata\\TestDataNew.xlsx");
     
-	report = new ExtentReports("C:\\Users\\gowthaman\\git\\DataDrivenFramework\\test-output\\ExtentReports\\Reports"+timeStamp+"\\"+timeStamp+".html");
+	report = new ExtentReports("C:\\Users\\gowthaman\\git\\DataDrivenFramework\\test-output\\ExtentReports\\Reports "+timeStamp+"\\"+timeStamp+".html");
 	latestReport = new ExtentReports("C:\\Users\\gowthaman\\git\\DataDrivenFramework\\test-output\\ExtentReports\\LatestReports\\LastRun.html");
     latestTest = latestReport.startTest("Test");
 	test = report.startTest("Test");
+	
+	fir = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\properties\\temp.properties");	
+	temp.load(fir);
 	
 	if(driver==null) {
 		if(config.getProperty("browser").equalsIgnoreCase("chrome")) {

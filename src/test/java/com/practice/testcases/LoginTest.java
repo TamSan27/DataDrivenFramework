@@ -16,11 +16,12 @@ public class LoginTest extends TestBase {
 		
 		try {
 	Assert.assertTrue(isElementPresent(By.xpath(or.getProperty("HomeBtn"))),"Element is not visible right now");
-	
+	test.log(LogStatus.PASS, "test case is passed");
+	latestTest.log(LogStatus.PASS, "test case is passed");
 		}
 		catch(Exception e)
 		{
-			test.log(LogStatus.FAIL, "Test case failed");
+			latestTest.log(LogStatus.FAIL,"Test case failed");
 		}
 		}
 }
