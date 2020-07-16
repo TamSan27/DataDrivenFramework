@@ -4,16 +4,20 @@
   <listeners>
     <listener class-name="com.practice.listeners.ListenerTest"/>
   </listeners>
-  <test name="Test case -2(failed)">
+  <test name="Test case - 4(failed)">
     <classes>
-      <class name="com.practice.testcases.AddCustomerLoginTest">
+      <class name="com.practice.testcases.Customer">
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="openAccount"/>
+          <include name="CustomerCheck"/>
+        </methods>
+      </class> <!-- com.practice.testcases.Customer -->
+      <class name="com.practice.testcases.AddCustomer">
+        <methods>
           <include name="clickAddCustomers"/>
         </methods>
-      </class> <!-- com.practice.testcases.AddCustomerLoginTest -->
+      </class> <!-- com.practice.testcases.AddCustomer -->
     </classes>
-  </test> <!-- Test case -2(failed) -->
+  </test> <!-- Test case - 4(failed) -->
 </suite> <!-- Failed suite [Test suite] -->

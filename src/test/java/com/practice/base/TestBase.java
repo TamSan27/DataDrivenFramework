@@ -70,7 +70,7 @@ public void setUp() throws IOException {
 	
 }
 
-public boolean isElementPresent(By by) {
+public static boolean isElementPresent(By by) {
 	try
 	{
 		driver.findElement(by);
