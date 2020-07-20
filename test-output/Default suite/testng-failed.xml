@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.practice.testcases.AddCustomerLoginTest">
+      <class name="com.practice.testcases.AddCustomer">
         <methods>
-          <include name="addCustomers" invocation-numbers="1"/>
+          <include name="clickAddCustomers"/>
           <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="addCustomers" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.practice.testcases.AddCustomerLoginTest -->
+      </class> <!-- com.practice.testcases.AddCustomer -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

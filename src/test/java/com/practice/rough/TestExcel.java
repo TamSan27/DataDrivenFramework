@@ -36,8 +36,33 @@ String first= cell.getStringCellValue();
 System.out.println("first"+first);
 
 
+	//sheet=wb.getSheet(Sheetname);
+	String cellValue = null,cuuValue = null;
+	for(int i=1;i<rowCount;i++) {
+		row=sheet.getRow(i);
+		cell = row.getCell(0);
+		cellValue=cell.getStringCellValue();
+		if(cellValue.equalsIgnoreCase("Tam")) {
+			System.out.println("inside");
+			cell=row.getCell(3);
+			cellValue=cell.getStringCellValue();
+			cuuValue=cell.getStringCellValue();
+			//System.out.println(cuuValue);
+		}
+		
+		
+	}
+	System.out.println(cuuValue);
+	System.out.println(cellValue);
+		
+//	row=sheet.getRow(rownum)
+	
+	
+	
+	
+}
 
 	
 
 }
-}
+

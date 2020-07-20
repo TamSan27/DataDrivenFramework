@@ -23,24 +23,31 @@ import com.relevantcodes.extentreports.LogStatus;
 @Listeners(com.practice.listeners.ListenerTest.class)
 public class AddCustomer extends TestBase {
 
+	//OpenAccount() opnAcc = new OpenAccount();
+	
+	
 	
 	@BeforeClass
 	public void clickAddCustomers() {
 		
-	//	driver.findElement(By.xpath(or.getProperty("BankManagerLoginBtn"))).click();
-		driver.findElement(By.xpath(or.getProperty("AddCustomerBtn"))).click();
+		//driver.findElement(By.xpath(or.getProperty("BankManagerLoginBtn"))).click();
+		click("BankManagerLoginBtn");
+		//driver.findElement(By.xpath(or.getProperty("AddCustomerBtn"))).click();
+		click("AddCustomerBtn");
 	}
 
 	@Test(dataProvider = "AddCustomers")
-	public void addCustomers(String frstNm, String LstNM, String pstCde) throws InterruptedException, AWTException {
+	public void addCustomers(String frstNm, String LstNM, String pstCde,String currValue) throws InterruptedException, AWTException {
 
 		driver.findElement(By.xpath(or.getProperty("FirstNmTxtBx"))).sendKeys(frstNm);
 		driver.findElement(By.xpath(or.getProperty("LastNmTxtBx"))).sendKeys(LstNM);
 		driver.findElement(By.xpath(or.getProperty("PostCdTxtBx"))).sendKeys(pstCde);
-		driver.findElement(By.xpath(or.getProperty("AddCustSubBtn"))).click();
-		test.log(LogStatus.PASS, "Object Clicked"+"AddCustSubBtn");
+	//	driver.findElement(By.xpath(or.getProperty("AddCustSubBtn"))).click();
+		click("AddCustSubBtn");
+		//test.log(LogStatus.PASS, "Object Clicked"+"AddCustSubBtn");
 		
 		temp.setProperty("Dynamic CustomerName", frstNm +" "+LstNM);
+		String customerName = frstNm +" "+LstNM ;
 		temp.setProperty("Dynamic CustomerFirstName", frstNm);
 
 		Thread.sleep(3000);
@@ -62,6 +69,9 @@ public class AddCustomer extends TestBase {
 	}
 		alert.accept();
 	
+		OpenAccount.openAccountForUser(customerName,currValue);
+		Customer.CustomerCheck(frstNm);
+	
 	}
 
 	@DataProvider(name = "AddCustomers")
@@ -70,14 +80,14 @@ public class AddCustomer extends TestBase {
 		int rowCount = excel.getRowNumber("Sheet1");
 		int colCount = excel.getColNumber("Sheet1");
 
-		Object[][] data = new Object[rowCount][colCount];
-
+	//	Object[][] data = new Object[rowCount][colCount]; in the excel it is jsut one row.
+		Object[][] data = new Object[1][colCount];
 		System.out.println(rowCount);
 		System.out.println(colCount);
-		for (int row = 1; row <= rowCount; row++) {
+		for (int row = 4; row <= rowCount; row++) {
 			for (int col = 0; col < colCount; col++) {
-				data[row - 1][col] = excel.getCellData("Sheet1", row, col);
-				System.out.println(data[row - 1][col]);
+				data[row - 4][col] = excel.getCellData("Sheet1", row, col);
+				System.out.println(data[row - 4][col]);
 			}
 
 		}
@@ -85,6 +95,8 @@ public class AddCustomer extends TestBase {
 		return data;
 
 	}
+	
+
 	
 
 

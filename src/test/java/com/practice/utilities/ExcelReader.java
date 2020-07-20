@@ -24,6 +24,7 @@ public class ExcelReader {
 	int rows;
 	int cols;
 	String cellValue;
+	String Sheetname="Sheet1";
 	//String path = "C:\\Users\\gowthaman\\git\\DataDrivenFramework\\src\\test\\resources\\testdata\\TestData.xlsx";
 	
 	
@@ -63,6 +64,30 @@ public class ExcelReader {
 		return cellValue;
 			
 	}
+	
+	public String getCurrencyData(String firstName) {
+		sheet=wb.getSheet(Sheetname);
+		for(int i=0;i<getRowNumber("Sheet1");i++) {
+			row=sheet.getRow(i);
+			cell = row.getCell(0);
+			cellValue=cell.getStringCellValue();
+			if(cellValue.equalsIgnoreCase(firstName))
+			{
+				cell=row.getCell(3);
+				cellValue =cell.getStringCellValue();
+			}
+			
+			//System.out.println();
+			
+		}
+			
+	//	row=sheet.getRow(rownum)
+		
+		return cellValue;
+		
+		
+	}
+	
 
 }
 

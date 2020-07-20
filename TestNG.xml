@@ -16,16 +16,7 @@
 			<class name="com.practice.testcases.AddCustomer" />
 		</classes>
 	</test>
-	<test verbose="2" name="Test case - 3">
-		<classes>
-			<class name="com.practice.testcases.OpenAccount" />
-		</classes>
-	</test>
-	<test verbose="2" name="Test case - 4">
-		<classes>
-			<class name="com.practice.testcases.Customer" />
-		</classes>
-	</test>
+
 	<!-- Default test -->
 </suite>
 <!-- Default suite -->

@@ -4,6 +4,42 @@
   <listeners>
     <listener class-name="com.practice.listeners.ListenerTest"/>
   </listeners>
+  <test name="Test case - 2(failed)">
+    <classes>
+      <class name="com.practice.testcases.AddCustomer">
+        <methods>
+          <include name="clickAddCustomers"/>
+          <include name="addCustomers"/>
+        </methods>
+      </class> <!-- com.practice.testcases.AddCustomer -->
+      <class name="com.practice.testcases.Customer">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.practice.testcases.Customer -->
+    </classes>
+  </test> <!-- Test case - 2(failed) -->
+  <test name="Test case - 3(failed)">
+    <classes>
+      <class name="com.practice.testcases.AddCustomer">
+        <methods>
+          <include name="clickAddCustomers"/>
+        </methods>
+      </class> <!-- com.practice.testcases.AddCustomer -->
+      <class name="com.practice.testcases.Customer">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.practice.testcases.Customer -->
+      <class name="com.practice.testcases.OpenAccount">
+        <methods>
+          <include name="openAccount"/>
+        </methods>
+      </class> <!-- com.practice.testcases.OpenAccount -->
+    </classes>
+  </test> <!-- Test case - 3(failed) -->
   <test name="Test case - 4(failed)">
     <classes>
       <class name="com.practice.testcases.Customer">
