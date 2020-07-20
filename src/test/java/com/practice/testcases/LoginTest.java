@@ -10,18 +10,15 @@ import com.relevantcodes.extentreports.LogStatus;
 public class LoginTest extends TestBase {
 
 	@Test
-	public void login()
-	{
-		driver.findElement(By.xpath(or.getProperty("BankManagerLoginBtn"))).click();
-		
+	public void login() {
+		click("BankManagerLoginBtn");
 		try {
-	Assert.assertTrue(isElementPresent(By.xpath(or.getProperty("HomeBtn"))),"Element is not visible right now");
-	test.log(LogStatus.PASS, "test case is passed");
-	latestTest.log(LogStatus.PASS, "test case is passed");
+			Assert.assertTrue(isElementPresent(By.xpath(or.getProperty("HomeBtn"))),
+					"Element is not visible right now");
+			test.log(LogStatus.PASS, "test case is passed");
+			latestTest.log(LogStatus.PASS, "test case is passed");
+		} catch (Exception e) {
+			latestTest.log(LogStatus.FAIL, "Test case failed");
 		}
-		catch(Exception e)
-		{
-			latestTest.log(LogStatus.FAIL,"Test case failed");
-		}
-		}
+	}
 }

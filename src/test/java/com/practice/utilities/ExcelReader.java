@@ -59,8 +59,6 @@ public class ExcelReader {
 			  cellValue = cell.getStringCellValue();
 		 }
 		 
-		 System.out.println(cellValue);
-		
 		return cellValue;
 			
 	}

@@ -84,7 +84,7 @@ public class TestBase {
 			driver.findElement(by);
 			latestTest.log(LogStatus.PASS, "Element Found");
 			return true;
-		} catch (NoSuchElementException e) {
+		} catch (Exception e) {
 			latestTest.log(LogStatus.FAIL, "Element not Found");
 			return false;
 		}

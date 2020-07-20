@@ -16,7 +16,11 @@
 			<class name="com.practice.testcases.AddCustomer" />
 		</classes>
 	</test>
-
+<test verbose="2" name="Test case - 3">
+		<classes>
+			<class name="com.practice.testcases.CustomerLogin" />
+		</classes>
+	</test>
 	<!-- Default test -->
 </suite>
 <!-- Default suite -->
