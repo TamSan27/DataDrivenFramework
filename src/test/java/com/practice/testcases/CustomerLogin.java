@@ -5,7 +5,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.mongodb.assertions.Assertions;
 import com.practice.base.TestBase;
 
 public class CustomerLogin extends TestBase{

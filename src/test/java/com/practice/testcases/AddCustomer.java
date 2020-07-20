@@ -16,7 +16,9 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.practice.base.TestBase;
+import com.practice.utilities.Customer;
 import com.practice.utilities.ExcelReader;
+import com.practice.utilities.OpenAccount;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;

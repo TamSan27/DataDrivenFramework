@@ -1,4 +1,4 @@
-package com.practice.testcases;
+package com.practice.utilities;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
