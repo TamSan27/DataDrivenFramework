@@ -1,6 +1,8 @@
 package com.practice.testcases;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,6 +20,12 @@ public class CustomerLogin extends TestBase{
 	
 	@Test
 	public void customerLoginPage() throws InterruptedException {
+		
+		//we can check the defaulted value, by using getFirstSelectedOption() or /option[@selected] by using selected attribute in xpath
+		Select se = new Select(driver.findElement(By.xpath("//option[text()='---Your Name---']//parent::select")));
+		WebElement wb = se.getFirstSelectedOption();
+		String text = wb.getText();
+		System.out.println(text);
 		
 		click("CusSelectionBtn");
 		String customerName = temp.getProperty("Dynamic CustomerName");
