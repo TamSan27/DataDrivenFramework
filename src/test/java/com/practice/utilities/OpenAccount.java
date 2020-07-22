@@ -32,6 +32,9 @@ public class OpenAccount extends TestBase {
 		alert = wait1.until(ExpectedConditions.alertIsPresent());
 		String alertText = alert.getText();
 		System.out.println("text is:" + alertText);
+		String accountNo = alertText.substring(alertText.length()-4);
+		temp.setProperty("accountNo", accountNo);
+		System.out.println("account nmber is:"+accountNo);
 		if (alertText.contains("Account")) {
 			test.log(LogStatus.PASS, "test case is passed");
 			latestTest.log(LogStatus.PASS, "test case is passed");

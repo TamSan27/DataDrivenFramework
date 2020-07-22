@@ -57,6 +57,7 @@ public class AddCustomer extends TestBase {
 		alert = wait.until(ExpectedConditions.alertIsPresent());
 		String alertText = alert.getText();
 		System.out.println("text is:" + alertText);
+		
 		if (alertText.contains("Customer")) {
 			alert.accept();
 			test.log(LogStatus.PASS, "test case is passed");
