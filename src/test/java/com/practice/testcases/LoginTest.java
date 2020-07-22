@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import com.practice.base.TestBase;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class Login extends TestBase {
+public class LoginTest extends TestBase {
 
 	@Test
 	public void login() {
