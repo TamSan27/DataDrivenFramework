@@ -11,7 +11,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public class OpenAccount extends TestBase {
 	
-	public static void openAccountForUser(String customerName, String CurrValue) throws InterruptedException {
+	public static void openAccountForUser(String customerName, String currValue) throws InterruptedException {
 
 		// String customerName = temp.getProperty("Dynamic CustomerName");Storing value of Property file in runtime & getting from another class
 
@@ -24,7 +24,7 @@ public class OpenAccount extends TestBase {
 		driver.findElement(By.xpath("//select/option[text()='" + customerName + "']")).click();
 
 		click("CurrencySlctBtn");
-		driver.findElement(By.xpath("//select/option[text()='" + CurrValue + "']")).click();
+		driver.findElement(By.xpath("//select/option[text()='" + currValue + "']")).click();
 		click("ProcessBtn");
 
 		Alert alert = null;
@@ -33,7 +33,8 @@ public class OpenAccount extends TestBase {
 		String alertText = alert.getText();
 		System.out.println("text is:" + alertText);
 		String accountNo = alertText.substring(alertText.length()-4);
-		temp.setProperty("accountNo", accountNo);
+		temp.setProperty("DynamicAccountNo", accountNo);
+		temp.setProperty("DynamicCurrValue", currValue);
 		System.out.println("account nmber is:"+accountNo);
 		if (alertText.contains("Account")) {
 			test.log(LogStatus.PASS, "test case is passed");

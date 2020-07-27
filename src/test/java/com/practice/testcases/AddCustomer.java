@@ -4,6 +4,8 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -40,9 +42,9 @@ public class AddCustomer extends TestBase {
 		driver.findElement(By.xpath(or.getProperty("PostCdTxtBx"))).sendKeys(pstCde);
 		click("AddCustSubBtn");
 
-		temp.setProperty("Dynamic CustomerName", frstNm + " " + LstNM);// storing value in property file in runtime
+		temp.setProperty("DynamicCustomerName", frstNm + " " + LstNM);// storing value in property file in runtime
 		String customerName = frstNm + " " + LstNM;
-		temp.setProperty("Dynamic CustomerFirstName", frstNm);
+		temp.setProperty("DynamicCustomerFirstName", frstNm);
 
 		Thread.sleep(3000);
 
@@ -56,7 +58,7 @@ public class AddCustomer extends TestBase {
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		alert = wait.until(ExpectedConditions.alertIsPresent());
 		String alertText = alert.getText();
-		System.out.println("text is:" + alertText);
+		System.out.println("text is:" + alertText.length());
 		
 		if (alertText.contains("Customer")) {
 			alert.accept();
@@ -65,7 +67,13 @@ public class AddCustomer extends TestBase {
 		}
 
 		OpenAccount.openAccountForUser(customerName, currValue);
-		Customer.CustomerCheck(frstNm);
+		ArrayList<String> inputList = new ArrayList<String>();
+		inputList.add(frstNm);
+		inputList.add(LstNM);
+		inputList.add(pstCde);
+		inputList.add(temp.getProperty("DynamicAccountNo"));
+				
+		Customer.CustomerCheck(inputList);
 
 	}
 
