@@ -11,8 +11,12 @@ import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.io.Files;
 
@@ -31,31 +35,34 @@ public class TestingJavaFileDelete {
 		 */
 		
 		
-		File file = new File("C:\\Users\\gowthaman\\Music\\cola.xls"); 
-         
-	    	 if( file.delete())
-	    	 {
-	    	  System.out.println("File deleted successfully"); 
-	      }
-	    	 else { 
-	    	  System.out.println("Failed to delete the file"); 
-	        }
-	    	 
-	    		Map preference = new HashMap();
-	    		preference.put("download.default_directory",
-	    				"C:\\Users\\gowthaman\\Music");
-	    		preference.put("download.prompt_for_download", false);
-	    		ChromeOptions opt = new ChromeOptions();
-	    		opt.setExperimentalOption("prefs", preference);
+		/*
+		 * File file = new File("C:\\Users\\gowthaman\\Music\\cola.xls");
+		 * 
+		 * if( file.delete()) { System.out.println("File deleted successfully"); } else
+		 * { System.out.println("Failed to delete the file"); }
+		 */
+		/*
+		 * Map preference = new HashMap(); preference.put("download.default_directory",
+		 * "C:\\Users\\gowthaman\\Music");
+		 * preference.put("download.prompt_for_download", false); ChromeOptions opt =
+		 * new ChromeOptions(); opt.setExperimentalOption("prefs", preference);
+		 */
 	    		System.setProperty("webdriver.chrome.driver",
 						System.getProperty("user.dir") + "\\src\\test\\resources\\executables\\chromedriver.exe");
-	    		WebDriver driver = new ChromeDriver(opt);
 	    		
+	    		WebDriver driver = new ChromeDriver();
 	    		driver.get("http://www.principlesofeconometrics.com/excel.htm");
-	    		driver.findElement(By.xpath("//a[text()='cola']")).click();
 	    		
-	    		Thread.sleep(2000);
-	    		driver.close();
+	    		DesiredCapabilities cap = new DesiredCapabilities();
+	    		cap.setCapability("profile.default_content_settings.popups", 0);
+                cap.setCapability("download.prompt_for_download","false");
+                cap.setCapability("download.default_directory", "C:\\Users\\gowthaman\\Music");
+	   
+                WebDriver driver1 = new ChromeDriver(cap);
+               
+	    		driver1.findElement(By.xpath("//a[text()='cola']")).click();
+	    		Thread.sleep(4000);
+	    		driver1.close();
 	}}
 	    
 		
