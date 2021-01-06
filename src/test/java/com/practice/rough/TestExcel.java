@@ -56,8 +56,14 @@ System.out.println("first"+first);
 	System.out.println(cellValue);
 		
 //	row=sheet.getRow(rownum)
-	
-	
+	/* Renaming the file or deleting just with some partial starting name
+	 * File dir = new File("C:\\Downloads"); File latestFile = new
+	 * File("C:\\Downloads\\Book.csv");
+	 * 
+	 * File[] listFiles = dir.listFiles(); for(File file:listFiles) {
+	 * if(file.getName().startsWith("Book")) { file.renameTo(latestFile);
+	 * System.out.println("Fiel renamed"); }
+	 */
 	
 	
 }

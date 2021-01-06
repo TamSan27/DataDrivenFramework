@@ -50,19 +50,19 @@ public class TestingJavaFileDelete {
 	    		System.setProperty("webdriver.chrome.driver",
 						System.getProperty("user.dir") + "\\src\\test\\resources\\executables\\chromedriver.exe");
 	    		
-	    		WebDriver driver = new ChromeDriver();
-	    		driver.get("http://www.principlesofeconometrics.com/excel.htm");
 	    		
-	    		DesiredCapabilities cap = new DesiredCapabilities();
-	    		cap.setCapability("profile.default_content_settings.popups", 0);
-                cap.setCapability("download.prompt_for_download","false");
-                cap.setCapability("download.default_directory", "C:\\Users\\gowthaman\\Music");
-	   
-                WebDriver driver1 = new ChromeDriver(cap);
-               
-	    		driver1.findElement(By.xpath("//a[text()='cola']")).click();
+	    		
+	    		Map preference = new HashMap(); 
+	    		preference.put("download.default_directory","C:\\Users\\gowthaman\\Music");
+	    		preference.put("download.prompt_for_download", false); 
+	    		ChromeOptions opt = new ChromeOptions(); 
+	    		opt.setExperimentalOption("prefs", preference);
+	    				 
+	    		WebDriver driver = new ChromeDriver(opt);
+	    		driver.get("http://www.principlesofeconometrics.com/excel.htm");
+	    		driver.findElement(By.xpath("//a[text()='cola']")).click();
 	    		Thread.sleep(4000);
-	    		driver1.close();
+	    		driver.close();
 	}}
 	    
 		
