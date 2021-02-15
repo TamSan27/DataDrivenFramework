@@ -50,7 +50,7 @@ public class TestBase {
 		or.load(fip);
 
 		excel = new ExcelReader(
-				"C:\\Users\\gowthaman\\git\\DataDrivenFramework\\src\\test\\resources\\testdata\\TestDataNew.xlsx");
+				System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\TestDataNew.xlsx");
 
 		report = new ExtentReports(
 				"C:\\Users\\gowthaman\\git\\DataDrivenFramework\\test-output\\ExtentReports\\Reports " + timeStamp
@@ -67,7 +67,7 @@ public class TestBase {
 		if (driver == null) {
 			if (config.getProperty("browser").equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver",
-						System.getProperty("user.dir") + "\\src\\test\\resources\\executables\\chromedriver.exe");
+						System.getProperty("user.dir") + "\\src\\test\\resources\\executable\\chromedriver.exe");
 				driver = new ChromeDriver();
 			}
 
