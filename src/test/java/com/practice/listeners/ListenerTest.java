@@ -8,7 +8,7 @@ public class ListenerTest implements ITestListener{
 
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
-		System.out.println("The test case" +result.getName() + "started");
+		System.out.println("The test case" +result.getName() + " 						 d");
 	}
 
 	public void onTestSuccess(ITestResult result) {

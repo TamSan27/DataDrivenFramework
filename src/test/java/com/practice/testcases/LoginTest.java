@@ -11,6 +11,7 @@ public class LoginTest extends TestBase {
 
 	@Test
 	public void login() {
+	//	System.out.println(""Test);
 		click("BankManagerLoginBtn");
 		try {
 			Assert.assertTrue(isElementPresent(By.xpath(or.getProperty("HomeBtn"))),
