@@ -50,7 +50,7 @@ public class TestBase {
 		or.load(fip);
 
 		excel = new ExcelReader(
-				"C:\\Users\\gowthaman\\git\\DataDrivenFramework\\src\\test\\resources\\testdata\\TestDataNew.xlsx");
+				System.getProperty("user.dir") + "\\src\\test\\resources\\testdata\\TestDataNew.xlsx");
 
 		report = new ExtentReports(
 				"C:\\Users\\gowthaman\\git\\DataDrivenFramework\\test-output\\ExtentReports\\Reports " + timeStamp
